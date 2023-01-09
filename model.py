@@ -42,7 +42,8 @@ def nf_forward(model, inputs):
 class FeatureExtractor(nn.Module):
     def __init__(self):
         super(FeatureExtractor, self).__init__()
-        self.feature_extractor = EfficientNet.from_pretrained('efficientnet-b5')
+        path = os.path.join(MODEL_DIR, '')
+        self.feature_extractor = EfficientNet.from_pretrained('efficientnet-b5','/data/2D-detection/cs-flow/models/tmp/efficientnet-b5.pth')
 
     def eff_ext(self, x, use_layer=35):
         x = self.feature_extractor._swish(self.feature_extractor._bn0(self.feature_extractor._conv_stem(x)))

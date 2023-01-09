@@ -5,9 +5,9 @@ research purposes. Don't try this code if you are a software engineer.'''
 device = 'cuda'  # or 'cpu'
 
 # data settings
-dataset_path = "data/images"  # parent directory of datasets
-class_name = "dummy_data"  # dataset subdirectory
-modelname = "dummy_test"  # export evaluations/logs with this name
+dataset_path = "data/cs_data"  # parent directory of datasets
+class_name = "lack"  # dataset subdirectory
+modelname = "lack_model"  # export evaluations/logs with this name
 pre_extracted = True  # were feature preextracted with extract_features?
 
 img_size = (768, 768)  # image size of highest scale, others are //2, //4
@@ -32,7 +32,7 @@ n_feat = {"effnetB5": 304}[extractor]  # dependend from feature extractor
 map_size = (img_size[0] // 32, img_size[1] // 32)
 
 # dataloader parameters
-batch_size = 16  # actual batch size is this value multiplied by n_transforms(_test)
+batch_size = 8  # actual batch size is this value multiplied by n_transforms(_test)
 kernel_sizes = [3] * (n_coupling_blocks - 1) + [5]
 
 # total epochs = meta_epochs * sub_epochs
